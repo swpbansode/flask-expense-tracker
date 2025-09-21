@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="text-center">
+    <h1>Welcome to ExpenseTracker</h1>
+    {% if user %}
+      <p><a href="/expenses">Manage your expenses</a></p>
+    {% else %}
+      <p><a href="/signup">Sign up</a> or <a href="/login">log in</a></p>
+    {% endif %}
+  </div>
+{% endblock %}
