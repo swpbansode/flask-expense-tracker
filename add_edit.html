@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h3>{{ 'Edit' if expense else 'Add' }} Expense</h3>
+    <form method="post">
+      <div class="mb-3"><label>Category</label><input class="form-control" name="category" value="{{ expense['category'] if expense else '' }}" required></div>
+      <div class="mb-3"><label>Amount</label><input type="number" step="0.01" class="form-control" name="amount" value="{{ expense['amount'] if expense else '' }}" required></div>
+      <div class="mb-3"><label>Comments</label><textarea class="form-control" name="comments">{{ expense['comments'] if expense else '' }}</textarea></div>
+      <button class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
