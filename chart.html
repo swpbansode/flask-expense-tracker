@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3>Category-wise Expense Distribution</h3>
+  <canvas id="pie"></canvas>
+  <script>
+    fetch('/api/chart_data')
+      .then(r=>r.json())
+      .then(data=>{
+        const ctx = document.getElementById('pie');
+        new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Expenses',
+              data: data.values
+            }]
+          }
+        });
+      });
+  </script>
+{% endblock %}
